@@ -1,31 +1,17 @@
 #include "shell.h"
 /**
- * mj_strncpy - function that copies a string
- * @dest: destination string to copy to
- * @src: the source string
- * @k: the amount of characters to copy
- * Return: concated string
+ * custom_exit - function that causes process termination
+ * @args: empty arguments
+ * Return: return 0 to terminate process
  */
-char *mj_strncpy(char *dest, char *src, int k)
+int custom_exit(char **args)
 {
-	int i;
-	int j;
-	char *s = dest;
-
-	i = 0;
-	while (src[i] != '\0' && i < k - 1)
+	if (args[1])
 	{
-		dest[i] = src[i];
-		i++;
+		return (atoi(args[1]));
 	}
-	if (i < k)
+	else
 	{
-		j = i;
-		while (j < k)
-		{
-			dest[j] = '\0';
-			j++;
-		}
+		return (0);
 	}
-	return (s);
 }

@@ -9,20 +9,19 @@
 #include <sys/stat.h>
 
 void mj_print(const char *comment);
-
 void mj_display_prompt(void);
-
 void mj_exec_command(const char *command);
-
 void input_command(char *command, size_t size);
-
 char mj_path(ino_t *info, char *pathstr, char *command);
-
-
 int is_command(ino_t *info, char *path);
+int execute_Args(char **args);
+int set_new_process(char **args);
 
-char* mj_dup_chars(const char* pathstr, int start, int stop);
+extern char **environ;
 
-
+int custom_env(void);
+int custom_exit(char **args);
+int custom_help(char **args);
+int custom_cd(char **args);
 
 #endif
