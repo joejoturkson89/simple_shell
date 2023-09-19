@@ -10,7 +10,7 @@
 
 	while (1)
 	{
-		printf("(mj_shell$$)");
+		printf("(mj_shell$$)\n");
 		fflush(stdout);
 		nread = getline(&line, &len, stdin);
 		
