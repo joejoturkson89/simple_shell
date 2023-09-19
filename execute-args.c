@@ -9,10 +9,10 @@ int execute_Args(char **args)
 {
 	char *builtin_func_list[] = {"cd", "env", "help", "exit"};
 	int (*builtin_func[])(char **) = {
-		&custom_exit,
+		&custom_cd,
 		&custom_env,
 		&custom_help,
-		&custom_cd
+		&custom_exit
 	};
 	unsigned long int i;
 	size_t num_builtin_funcs = sizeof(builtin_func_list) / sizeof(char *);

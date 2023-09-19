@@ -1,13 +1,14 @@
 #include "shell.h"
 /**
- * mj_environ - prints environment
+ * custom_env - prints environment
  * @args: arguments
  * Return: 1 if successful, 0 if otherwise
  */
-int mj_environ(char **args)
+int custom_env(char **args)
 {
 	int j = 0;
-	
+
+	(void)**args;	
 
 	while (environ[j])
 	{

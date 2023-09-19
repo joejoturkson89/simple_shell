@@ -1,9 +1,23 @@
 #include "shell.h"
-/**
- * mj_display_prompt - function that displays root of shell
- */
+#include <stdio.h>
 
-void mj_display_prompt(void)
+int main(int argc, char *argv[])
 {
-	mj_print("mj_shell$$");
+	
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t nread;
+
+	(void)argc; (void)argv;
+
+	while (1)
+	{
+		printf("(mj_shell$$) ");
+		nread = getline(&line, &len, stdin);
+	}
+	
+	if (nread == -1)
+	{
+		return (0);
+	}
 }
