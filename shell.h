@@ -19,7 +19,7 @@ int set_new_process(char **args);
 
 extern char **environ;
 
-int custom_env(char **);
+int mj_environ(char **args);
 int custom_exit(char **args);
 int custom_help(char **args);
 int custom_cd(char **args);
@@ -31,12 +31,11 @@ int custom_cd(char **args);
  * @name: name of function
  * @BuiltinFunc: specific builtin functions to use
  */
-typedef struct BuiltinCommand
+typedef  int (*BuiltinFunc)(char **); struct BuiltinCommand
 {
-	int (*BuiltinFunc)(char **);
 	char *name;
 	BuiltinFunc func;
 
-};
+}
 
 #endif

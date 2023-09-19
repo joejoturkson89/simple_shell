@@ -8,11 +8,12 @@
 int execute_Args(char **args)
 {
 	char *builtin_func_list[] = {"cd", "env", "help", "exit"};
-	struct BuiltinCommand builtin_commands[] = {
-		{"help", custom_help},
-		{"exit", custom_exit},
-		{"cd", custom_cd},
-		{"env", custom_env}};
+	int (*builtin_func[])(char **) = {
+		&custom_exit,
+		&custom_env,
+		&custom_help,
+		&custom_cd
+	};
 	unsigned long int i;
 	size_t num_builtin_funcs = sizeof(builtin_func_list) / sizeof(char *);
 
@@ -22,9 +23,9 @@ int execute_Args(char **args)
 	}
 	for (i = 0; i < num_builtin_funcs; i++)
 	{
-		if (strcmp(args[0], builtin_commands[i].name) == 0)
+		if (strcmp(args[0], builtin_func_list[i]) == 0)
 		{
-			return ((*builtin_commands[i].func)(args));
+			return ((*builtin_func[i])(args));
 		}
 	}
 	return (set_new_process(args));

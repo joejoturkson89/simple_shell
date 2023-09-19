@@ -6,7 +6,6 @@
  * mj_exec_command: funtion that creates an executable file
  * Return: 0
  */
-
 int main(void)
 {
 	char command[256];
