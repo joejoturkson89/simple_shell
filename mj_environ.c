@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * custom_env - prints environment
+ * @args: arguments
  * Return: 1 if successful, 0 if otherwise
  */
 int custom_env(char **args)

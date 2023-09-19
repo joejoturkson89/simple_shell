@@ -1,8 +1,7 @@
 #include "shell.h"
 /**
  * execute_Args - function that executes custom and process commands
- * @args: commands and flags
- * @structBuiltinCommand: built in commands
+ * @args: arguments
  * Return: 1 if success, 0 if otherwise
  */
 

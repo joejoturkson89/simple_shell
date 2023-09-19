@@ -30,7 +30,6 @@ void mj_exec_command(const char *command)
 
 		if (execve(args[0], args, envp) == -1)
 		{
-		
 
 			mj_print("Error Executing Command.\n");
 			exit(EXIT_FAILURE);
