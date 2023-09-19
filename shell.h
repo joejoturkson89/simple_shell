@@ -24,11 +24,19 @@ int custom_exit(char **args);
 int custom_help(char **args);
 int custom_cd(char **args);
 
-typedef int (*BuiltinFunc)(char **);
-struct BuiltinCommand
+
+/**
+ * struct BuiltinCommand - contains builtin string and related function
+ * @func: the function
+ * @name: name of function
+ * @BuiltinFunc: specific builtin functions to use
+ */
+typedef struct BuiltinCommand
 {
-        char *name;
-        BuiltinFunc func;
+	int (*BuiltinFunc)(char **);
+	char *name;
+	BuiltinFunc func;
+
 };
 
 #endif
