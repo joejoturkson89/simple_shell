@@ -2,25 +2,19 @@
 /**
  * execute_Args - function that executes custom and process commands
  * @args: commands and flags
+ * @structBuiltinCommand: built in commands
  * Return: 1 if success, 0 if otherwise
  */
-
-typedef int (*BuiltinFunc)(char **);
-struct BuiltinCommand
-{
-	char *name;
-	BuiltinFunc func;
-};
 
 int execute_Args(char **args)
 {
 	char *builtin_func_list[] = {"cd", "env", "help", "exit"};
 	struct BuiltinCommand builtin_commands[] = {
 		{"help", custom_help},
-                {"exit", custom_exit},
+		{"exit", custom_exit},
 		{"cd", custom_cd},
 		{"env", custom_env}};
-	long unsigned int i;
+	unsigned long int i;
 	size_t num_builtin_funcs = sizeof(builtin_func_list) / sizeof(char *);
 
 	if (args[0] == NULL)

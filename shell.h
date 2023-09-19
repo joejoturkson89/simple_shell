@@ -24,4 +24,11 @@ int custom_exit(char **args);
 int custom_help(char **args);
 int custom_cd(char **args);
 
+typedef int (*BuiltinFunc)(char **);
+struct BuiltinCommand
+{
+        char *name;
+        BuiltinFunc func;
+};
+
 #endif
