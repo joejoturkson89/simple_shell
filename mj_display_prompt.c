@@ -1,7 +1,7 @@
 #include "shell.h"
 #include <stdio.h>
 
-int main(int argc, char *argv[])
+;int main(int argc, char *argv[])
 {
 	
 	char *line = NULL;
@@ -14,10 +14,16 @@ int main(int argc, char *argv[])
 	{
 		printf("(mj_shell$$) ");
 		nread = getline(&line, &len, stdin);
+		
+		if (nread == -1)
+		{
+			break;
+		}
 	}
-	
-	if (nread == -1)
+
+	if (line != NULL)
 	{
-		return (0);
+		free(line);
 	}
+	return (0);
 }

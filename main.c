@@ -6,13 +6,14 @@
  * mj_exec_command: funtion that creates an executable file
  * Return: 0
  */
-int main(void)
+;int main(int argc, char *args[])
 {
 	char command[256];
 
+	(void)argc; (void)*args;
+
 	while (1)
 	{
-		mj_display_prompt();
 		input_command(command, sizeof(command));
 		mj_exec_command(command);
 	}

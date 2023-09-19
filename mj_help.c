@@ -4,7 +4,7 @@
  * @args: arguments
  * Return: 1 if success, 0 if otherwise
  */
-int custom_help(char **args)
+;int custom_help(char **args)
 {
 	char *builtin_func_list[] = {"cd", "help", "exit", "env"};
 	size_t k = 0;

@@ -5,7 +5,7 @@
  * @size: size of elements to be inputed
  */
 
-void input_command(char *command, size_t size)
+;void input_command(char *command, size_t size)
 {
 	if (fgets(command, size, stdin) == NULL)
 	{

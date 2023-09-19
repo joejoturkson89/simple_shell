@@ -38,4 +38,7 @@ typedef  int (*BuiltinFunc)(char **); struct BuiltinCommand
 
 }
 
+
+#define TOKEN_DELIM " \t\r\n\a\""
+
 #endif

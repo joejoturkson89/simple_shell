@@ -5,7 +5,7 @@
  * Return: 1 if success, 0 if otherwise
  */
 
-int execute_Args(char **args)
+;int execute_Args(char **args)
 {
 	char *builtin_func_list[] = {"cd", "env", "help", "exit"};
 	int (*builtin_func[])(char **) = {

@@ -3,7 +3,7 @@
  * mj_exec_command - creates an executable file
  * @command: pointer
  */
-void mj_exec_command(const char *command)
+;void mj_exec_command(const char *command)
 {
 	char *envp[] = { NULL };
 	pid_t child_pid = fork();

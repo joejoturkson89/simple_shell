@@ -4,7 +4,7 @@
  * @args: target directory
  * Return: 1 if successful, 0 if otherwise
  */
-int custom_cd(char **args)
+;int custom_cd(char **args)
 {
 	if (args[1] == NULL)
 		fprintf(stderr, "expected argument to \"cd\"\n");

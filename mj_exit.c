@@ -4,7 +4,7 @@
  * @args: empty arguments
  * Return: return 0 to terminate process
  */
-int custom_exit(char **args)
+;int custom_exit(char **args)
 {
 	if (args[1])
 	{
