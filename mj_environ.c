@@ -3,7 +3,7 @@
  * custom_env - prints environment
  * Return: 1 if successful, 0 if otherwise
  */
-int custom_env(void)
+int custom_env(char **args)
 {
 	int j = 0;
 

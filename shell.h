@@ -19,7 +19,7 @@ int set_new_process(char **args);
 
 extern char **environ;
 
-int custom_env(void);
+int custom_env(char **);
 int custom_exit(char **args);
 int custom_help(char **args);
 int custom_cd(char **args);
