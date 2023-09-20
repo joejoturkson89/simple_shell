@@ -30,15 +30,21 @@ void execute_arg(char *arg)
 		}
 		tokens[j] = NULL;
 		exe = tokens[0];
-		memory = exe;
-		if (execvp(memory, tokens) == -1)
+		path = "/bin/";
+		memory = malloc(strlen(path) + strlen(exe) + 1);
+		if (memory == NULL)
 		{
-			perror("Argument execution failed");
+			perror("Memory allocation failed");
 			exit(EXIT_FAILURE);
 		}
+		strcpy(memory, path);
+		strcat(memory, exe);
+		if (execve(memory, tokens, env) == -1)
+		{
+			perror("argument execution failed");
+			exit(EXIT_FAILURE);
+		}
+		free(memory);
 	}
-	if (waitpid(p, &status, 0) == -1)
-	{
-		perror("Waiting for child process failed");
-	}
+	waitpid(p, &status, 0);
 }
