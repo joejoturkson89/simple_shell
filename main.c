@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
- * main - main function
+ * main - execution of main function
+ * Return: 0 if successful
  */
 int main(void)
 {
