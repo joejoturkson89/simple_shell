@@ -13,8 +13,12 @@ void execute_arg(char *arg)
 	int j = 0;
 	int status;
 
+	(void)*env; (void)*path;
 	if (p == -1)
+	{
 		perror("Forking failed");
+		return;
+	}
 	else if (p == 0)
 	{
 		token = strtok(arg, TOK_DELIM);
@@ -25,20 +29,15 @@ void execute_arg(char *arg)
 		}
 		tokens[j] = NULL;
 		exe = tokens[0];
-		path = "/bin/";
-		memory = malloc(strlen(path) + strlen(exe) + 1);
-		if (memory == NULL)
+		memory = exe;
+		if (execvp(memory, tokens) == -1)
 		{
-			perror("memory allocation failed");
-			exit(EXIT_FAILURE);
-		}
-		strcpy(memory, path);
-		strcat(memory, exe);
-		if (execve(memory, tokens, env) == -1)
-		{
-			perror("argument execution failed");
+			perror("Argument execution failed");
 			exit(EXIT_FAILURE);
 		}
 	}
-	waitpid(p, &status, 0);
+	if (waitpid(p, &status, 0) == -1)
+	{
+		perror("Waiting for child process failed");
+	}
 }
