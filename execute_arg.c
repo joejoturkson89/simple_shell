@@ -39,7 +39,6 @@ void execute_arg(char *arg)
 			perror("argument execution failed");
 			exit(EXIT_FAILURE);
 		}
-		free(memory);
 	}
 	waitpid(p, &status, 0);
 }
