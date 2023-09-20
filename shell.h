@@ -12,6 +12,9 @@
 
 #define BUFFER_SIZE 1024
 #define TOK_DELIM " \t\r\n\a\""
+#define PROMPT "myshell$$"
+#define MAX_INPUT_LEN 1024
+
 
 void execute_arg(char *arg);
 
