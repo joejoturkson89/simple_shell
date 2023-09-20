@@ -13,7 +13,8 @@ void execute_arg(char *arg)
 	int j = 0;
 	int status;
 
-	(void)*env; (void)*path;
+	(void)*env;
+	(void)*path;
 	if (p == -1)
 	{
 		perror("Forking failed");
