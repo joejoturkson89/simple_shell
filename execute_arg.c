@@ -14,7 +14,6 @@ void execute_arg(char *arg)
 	int status;
 
 	(void)*env;
-	(void)*path;
 	if (p == -1)
 	{
 		perror("Forking failed");
