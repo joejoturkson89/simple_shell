@@ -6,44 +6,39 @@
  */
 void execute_arg(char *arg)
 {
-	pid_t pid = fork();
+	pid_t p = fork();
 	char *tokens[128];
-	char *exe;
+	char *exe, *path, *memory, *token;
 	char *env[] = {NULL};
-	char *token = strtok(arg, " ");
 	int j = 0;
+	int status;
 
-	if (pid == -1)
+	if (p == -1)
+		perror("Forking failed");
+	else if (p == 0)
 	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
-	else if (pid == 0)
-	{
-		exe = find_executable(arg);
-		if (exe == NULL)
-		{
-			fprintf(stderr, "Executable not found: %s\n", arg);
-			exit(EXIT_FAILURE);
-		}
-
+		token = strtok(arg, TOK_DELIM);
 		while (token != NULL)
 		{
 			tokens[j++] = token;
-			token = strtok(NULL, " ");
+			token = strtok(NULL, TOK_DELIM);
 		}
 		tokens[j] = NULL;
-		if (execve(exe, tokens, env) == -1)
+		exe = tokens[0];
+		path = "/bin/";
+		memory = malloc(strlen(path) + strlen(exe) + 1);
+		if (memory == NULL)
+		{
+			perror("memory allocation failed");
+			exit(EXIT_FAILURE);
+		}
+		strcpy(memory, path);
+		strcat(memory, exe);
+		if (execve(memory, tokens, env) == -1)
 		{
 			perror("");
 			exit(EXIT_FAILURE);
 		}
-		free(exe);
 	}
-	else
-	{
-		int status;
-
-		waitpid(pid, &status, 0);
-	}
+	waitpid(p, &status, 0);
 }
